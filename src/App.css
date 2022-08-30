@@ -1,38 +1,167 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --ORANGE: #FF4F05
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a {
+  text-decoration: none;
+  color: unset;
 }
 
-.App-header {
-  background-color: #282c34;
+button {
+  cursor: pointer;
+}
+.page{
+  position: relative;
+}
+.landing_section{
+  width: 100vw;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+.landing_page_main{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+.landing_page_main h1{
+  font-size: 35px;
+}
+.landing_page_main p{
+  max-width: 700px;
+}
+.landing_section_btns{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 50px;
+}
+.landing_section_btns button{
+  margin: 10px;
+  padding: 10px;
+  min-width: 150px;
+
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #f1f1f1;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+}
+.nav button{
+  margin: 0 5px;
+  padding: 5px 10px;
+}
+
+.register_section{
+  min-height: 100vh;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.register_pad{
+  width: 95vw;
+  max-width: 500px;
+  border: 1px solid #333;
+  padding: 15px;
+  border-radius: 5px;
+}
+.register_pad_top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 5px 0;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #333;
 }
 
-.App-link {
-  color: #61dafb;
+.pad_inputs{
+  display: flex;
+  flex-direction: column;
+}
+.pad_inputs label{
+  font-size: 15px;
+  margin-top: 3px;
+}
+.pad_inputs input{
+  margin-bottom: 3px;
+  padding: 5px;
+  border-radius: 0;
+  border: 1px solid #333;
+}
+.pad_inputs textarea{
+  margin-bottom: 3px;
+  padding: 5px;
+  border-radius: 0;
+  border: 1px solid #333;
+  min-height: 100px;
+  min-width: 100%;
+  max-width: 100%;
+}
+.register_bottom{
+  display: flex;
+  width:100%;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+.register_bottom button{
+  margin-left: 10px;
+  padding: 3px 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.admin{
+  display: flex;
+}
+.side_bar{
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  border-right: 1px solid #333;
+  min-height: 100vh;
+}
+.side_top{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  border-bottom: 1px solid #333;
+}
+.side_bar_navs{
+  display: flex;
+  flex-direction: column;
+}
+.side_bar_navs button{
+  padding: 10px;
+  text-align: start;
+  border: none;
+  border-bottom: 1px solid #333;
+  background: none;
+}
+.admin_main{
+  flex: 1;
+}
+.top_bar{
+  height: 100px;
+  border-bottom: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
 }
