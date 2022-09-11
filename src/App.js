@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import Admin from './pages/Admin';
 import Find from './pages/Find';
 import Home from './pages/Home';
@@ -15,6 +15,7 @@ function App() {
         <Route path="/find" element={<Find />} />
         <Route path="/login" element={<Login />} />
         <Route path="/admin/:page" element={<Admin />} />
+        <Route path="/*" element={<Home />} />
       </Routes>
     </Router>
   );

@@ -1,7 +1,9 @@
+import { useParams } from 'react-router-dom'
 const TopBar = () => {
+    let { page } = useParams();
     return (
         <div className="top_bar">
-            <h4>Dashboard</h4>
+            <h3 className='top_bar_header'>{page}</h3>
             <h4>Blood Bank</h4>
         </div>
     )
