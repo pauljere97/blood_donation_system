@@ -11,7 +11,7 @@ const Home = () => {
                 </section>
                 <div className="landing_section_btns">
                     <Link to={'/register'}>
-                        <button>Register as Donor</button>
+                        <button>Donate</button>
                     </Link>
                     <Link to={'/find'}>
                         <button>Find a Donor</button>

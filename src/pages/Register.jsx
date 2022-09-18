@@ -71,6 +71,15 @@ const Register = () => {
                         <button onClick={()=>change_step(-1)}>Back</button>
                         <button onClick={()=>change_step(1)}>Next</button>
                     </div>
+                </div>&nbsp;&nbsp;&nbsp;
+                <div className="register_pad">
+                    <p>Est ad mollit veniam ex pariatur veniam. Commodo officia consectetur mollit eiusmod sint sit cillum. Occaecat reprehenderit tempor minim tempor est aliquip deserunt reprehenderit id.</p>
+                    <div className="money_area">
+                    <input type="number" placeholder="K0.00" />
+                        <button>MTN Mobile Money</button>
+                        <button>Airtel Mobile Money</button>
+                        <button>Zamtel Mobile Money</button>
+                    </div>
                 </div>
             </section>
         </div>

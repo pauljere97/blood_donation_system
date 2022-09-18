@@ -21,9 +21,9 @@ const SideBar = () => {
                 <Link to={'/admin/broadcast'}>
                     <button>Broadcast</button>
                 </Link>
-                <Link to={'/admin/settings'}>
+                {/* <Link to={'/admin/settings'}>
                     <button>Settings</button>
-                </Link>
+                </Link> */}
                 <Link to={'/'}>
                     <button>Logout</button>
                 </Link>
