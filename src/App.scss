@@ -97,7 +97,7 @@ button {
   font-weight: 500;
   transition: 0.4s;
   border-radius: 20px;
-  min-width: 50px;
+  min-width: 70px;
 }
 .nav_btns:hover{
   background-color: var(--RED);
@@ -389,4 +389,30 @@ button {
   border-radius: 5px 0;
   border: none;
   margin-top: 15px;
+}
+
+.footer{
+  background-color: var(--DARK);
+  min-height: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer_text_side{
+  padding: 20px;
+  color: rgb(234, 234, 234);
+  max-width: 800px;
+}
+.store_downloads{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.store_downloads img{
+  height: 70px;
+  width: 260px;
+  border: 1px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 10px 0;
 }

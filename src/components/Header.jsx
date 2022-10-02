@@ -11,8 +11,12 @@ const Header = () => {
                 <Link to={'/'}>
                     <button style={{color:'#EB4D4A'}} className={location.pathname === '/' ? 'nav_btns nav_active' : 'nav_btns'}>Home</button>
                 </Link>
-                <button className={location.pathname === '/about' ? 'nav_btns nav_active' : 'nav_btns'}>About</button>
-                <button className={location.pathname === '/contact' ? 'nav_btns nav_active' : 'nav_btns'}>Contact</button>
+                <Link to={'/register'}>
+                    <button className={location.pathname === '/register' ? 'nav_btns nav_active' : 'nav_btns'}>Donate</button>
+                </Link>
+                <Link to={'/find'}>
+                    <button className={location.pathname === '/find' ? 'nav_btns nav_active' : 'nav_btns'}>Find a donor</button>
+                </Link>
                 <Link to={'/login'}>
                     <button className={location.pathname === '/login' ? 'nav_btns nav_active' : 'nav_btns'}>Login</button>
                 </Link>

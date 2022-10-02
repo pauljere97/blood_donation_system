@@ -1,5 +1,6 @@
 import Header from "../components/Header"
 import { Link } from "react-router-dom"
+import Footer from "../components/Footer"
 const Home = () => {
     return (
         <div className="page">
@@ -19,6 +20,7 @@ const Home = () => {
                     </Link>
                 </div>
             </section>
+            <Footer/>
         </div>
     )
 }

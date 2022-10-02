@@ -1,6 +1,6 @@
 import Header from "../components/Header"
 import { useState } from "react"
-import MTN from '../assets/mtn_logo.png'
+import Footer from "../components/Footer"
 const Register = () => {
     const [input_page, set_input_page] = useState(1)
     const [req_page, set_req_page] = useState(1)
@@ -119,6 +119,7 @@ const Register = () => {
                     </div>
                 </div>
             </section>
+            <Footer/>
         </div>
     )
 }

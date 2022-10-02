@@ -1,5 +1,6 @@
 import Header from "../components/Header"
 import { useState } from "react"
+import Footer from "../components/Footer"
 const Find = () => {
     const [input_page, set_input_page] = useState(1)
 
@@ -82,6 +83,7 @@ const Find = () => {
                     </div>
                 </div>
             </section>
+            <Footer/>
         </div>
     )
 }
