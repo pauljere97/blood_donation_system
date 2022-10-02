@@ -268,7 +268,7 @@ button {
   padding: 5px;
   width: 100%;
   border-collapse: collapse;
-  background-color: white;
+  // background-color: white;
 }
 
 .table th{
@@ -321,13 +321,15 @@ button {
 .broadcast{
   padding: 10px;
   margin: 10px;
-  border: 1px solid #333;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   border-radius: 3px;
+  background-color: white;
 }
 
 .broadcast > div{
   display: flex;
   font-weight: 500;
+  color: var(--RED);
 }
 
 .broadcast > p{
