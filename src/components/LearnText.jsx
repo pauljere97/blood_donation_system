@@ -9,8 +9,8 @@ const LearnText = () => {
                 <br />
                 <div>
                     <div className="text_side">
-                        <h1 style={{color:'#EB4D4A'}}>Donate Money</h1>
-                        <p>You can donate money instead to help pay for costs of blood donation, the costs of these campaigns including the costs of blood replenishment products i.e. (Milk, Sugar, Soft Drinks) are the leading causes of blood shortages in Blood banks</p>
+                        <h1 style={{color:'#EB4D4A'}}>What is Blood Donation</h1>
+                        <p>Commodo labore ipsum eu veniam reprehenderit nostrud magna pariatur ex nostrud. Deserunt labore excepteur consequat deserunt ea ea reprehenderit amet. Et commodo ex voluptate eiusmod duis officia consequat sint ex minim.</p>
                     </div>
                     <div className="register_pad">
                         
@@ -18,8 +18,8 @@ const LearnText = () => {
                 </div>
                 <div>
                     <div className="text_side">
-                        <h1 style={{color:'#EB4D4A'}}>Donate Money</h1>
-                        <p>You can donate money instead to help pay for costs of blood donation, the costs of these campaigns including the costs of blood replenishment products i.e. (Milk, Sugar, Soft Drinks) are the leading causes of blood shortages in Blood banks</p>
+                        <h1 style={{color:'#EB4D4A'}}>Who can donate</h1>
+                        <p>Commodo labore ipsum eu veniam reprehenderit nostrud magna pariatur ex nostrud. Deserunt labore excepteur consequat deserunt ea ea reprehenderit amet. Et commodo ex voluptate eiusmod duis officia consequat sint ex minim.</p>
                     </div>
                     <div className="register_pad">
                         
@@ -27,8 +27,8 @@ const LearnText = () => {
                 </div>
                 <div>
                     <div className="text_side">
-                        <h1 style={{color:'#EB4D4A'}}>Donate Money</h1>
-                        <p>You can donate money instead to help pay for costs of blood donation, the costs of these campaigns including the costs of blood replenishment products i.e. (Milk, Sugar, Soft Drinks) are the leading causes of blood shortages in Blood banks</p>
+                        <h1 style={{color:'#EB4D4A'}}>Where does blood go</h1>
+                        <p>Commodo labore ipsum eu veniam reprehenderit nostrud magna pariatur ex nostrud. Deserunt labore excepteur consequat deserunt ea ea reprehenderit amet. Et commodo ex voluptate eiusmod duis officia consequat sint ex minim.</p>
                     </div>
                     <div className="register_pad">
                         
@@ -36,17 +36,8 @@ const LearnText = () => {
                 </div>
                 <div>
                     <div className="text_side">
-                        <h1 style={{color:'#EB4D4A'}}>Donate Money</h1>
-                        <p>You can donate money instead to help pay for costs of blood donation, the costs of these campaigns including the costs of blood replenishment products i.e. (Milk, Sugar, Soft Drinks) are the leading causes of blood shortages in Blood banks</p>
-                    </div>
-                    <div className="register_pad">
-                        
-                    </div>
-                </div>
-                <div>
-                    <div className="text_side">
-                        <h1 style={{color:'#EB4D4A'}}>Donate Money</h1>
-                        <p>You can donate money instead to help pay for costs of blood donation, the costs of these campaigns including the costs of blood replenishment products i.e. (Milk, Sugar, Soft Drinks) are the leading causes of blood shortages in Blood banks</p>
+                        <h1 style={{color:'#EB4D4A'}}>What are the risks of donating blood</h1>
+                        <p>Commodo labore ipsum eu veniam reprehenderit nostrud magna pariatur ex nostrud. Deserunt labore excepteur consequat deserunt ea ea reprehenderit amet. Et commodo ex voluptate eiusmod duis officia consequat sint ex minim.</p>
                     </div>
                     <div className="register_pad">
                         
