@@ -60,6 +60,7 @@ const Register = () => {
             set_input_page(5)
         })
         .catch(function (error) {
+            alert('something went wrong')
             console.log(error);
         });
 
@@ -87,10 +88,10 @@ const Register = () => {
             set_req_page(2)
         })
         .catch(function (error) {
-            console.log(error);
+            alert('something went wrong')
+            console.log(error)
         });
 
-        console.log(payload)
 
     }
 

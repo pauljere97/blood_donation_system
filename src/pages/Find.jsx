@@ -67,6 +67,7 @@ const Find = () => {
         })
         .catch(function (error) {
             console.log(error);
+            alert('something went wrong')
         });
 
         console.log(payload)

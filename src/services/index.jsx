@@ -1,7 +1,7 @@
 
 
-const BASE = 'http://localhost:6262'
-// const BASE = 'https://tightward-api.herokuapp.com'
+// const BASE = 'http://localhost:6262'
+const BASE = 'https://tightward-api.herokuapp.com'
 const API = `${BASE}/api/bdsite/`
 
 export const register_donor = (data) => {

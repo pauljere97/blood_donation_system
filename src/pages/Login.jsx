@@ -26,6 +26,7 @@ const Login = () => {
         })
         .catch(function (error) {
             console.log(error);
+            alert('login failed')
         });
     }
 
