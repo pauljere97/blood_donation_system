@@ -2,10 +2,13 @@ import { MdPersonalInjury } from 'react-icons/md'
 import { BiMessageDots, BiDonateBlood, BiBroadcast } from 'react-icons/bi'
 import { BsFillPersonLinesFill } from 'react-icons/bs'
 import * as SERVICE from "../../services"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
+import { useContext, useState } from "react";
+import { Context } from "../../context/Context";
 import axios from "axios"
 
 const Dashboard = () => {
+    const { state, setState } = useContext(Context)
     
     const [requests, set_requests] = useState(0)
     const [donors, set_donors] = useState(0)
@@ -15,6 +18,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         let config = SERVICE.fetch_data()
+        setState({ ...state, loading_screen:true})
         axios(config).then(function (response) {
             set_requests(response['data']['requests'].length)
             set_donors(response['data']['donors'].length)
@@ -25,9 +29,11 @@ const Dashboard = () => {
             set_donations(amount)
             set_messages(Math.ceil(Math.random()*200))
             set_broadcasts(Math.ceil(Math.random()*200))
+            setState({ ...state, loading_screen:false})
         })
         .catch(function (error) {
             console.log(error);
+            setState({ ...state, loading_screen:false})
         });
     }, [])
 

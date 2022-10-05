@@ -6,7 +6,9 @@ const Header = () => {
     // console.log('pathname', location.pathname);
     return (
         <div className="header">
+            <Link to={'/'}>
             <h1>ZN<span style={{color:'#EB4D4A'}}>BTS</span></h1>
+            </Link>
             <nav className="nav">
                 <Link to={'/'}>
                     <button style={{color:'#EB4D4A'}} className={location.pathname === '/' ? 'nav_btns nav_active' : 'nav_btns'}>Home</button>

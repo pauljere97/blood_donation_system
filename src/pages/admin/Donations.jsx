@@ -1,19 +1,25 @@
 import {MdSwapVert} from 'react-icons/md'
 // import {AiFillEye} from 'react-icons/ai'
-import { useEffect, useState } from "react"
+import { useEffect, } from "react"
+import { useContext, useState } from "react";
+import { Context } from "../../context/Context";
 import * as SERVICE from "../../services"
 import * as HELPERS from "../../services/helpers"
 
 import axios from "axios"
 const Donations = () => {
+    const { state, setState } = useContext(Context)
     const [donations, set_donations] = useState([])
     useEffect(() => {
+        setState({ ...state, loading_screen:true})
         let config = SERVICE.fetch_data()
         axios(config).then(function (response) {
+            setState({ ...state, loading_screen:false})
             set_donations(response['data']['donations'])
             console.log(response['data']['donations'])
         })
         .catch(function (error) {
+            setState({ ...state, loading_screen:false})
             console.log(error);
         });
     },[])

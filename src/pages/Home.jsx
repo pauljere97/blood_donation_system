@@ -12,7 +12,8 @@ const Home = () => {
                 <section className="landing_page_main">
                     <h1>Zambia National</h1>
                     <h1><span style={{color:'#EB4D4A'}}>Blood Transfusion Service</span></h1>
-                    <p>Fugiat duis consequat consectetur id culpa consectetur sunt sint et occaecat aliqua. Pariatur nulla anim proident laboris quis. Pariatur et deserunt sit laboris labore aliquip ut reprehenderit non. Dolore voluptate aliquip esse id velit enim sunt exercitation velit tempor dolore. Sunt irure aliqua ipsum duis consectetur enim nisi id anim cupidatat.</p>
+                    <p>Blood Donation Is The Act Of Giving Blood To Someone Who Needs It. It Is Not Just About Giving Blood, But It Is An Act Of Kindness That Saves The Lives Of Hundreds Of People.</p>
+                    <p>A single drop of blood can make a huge difference.</p>
                 </section>
                 <img className="bloodicon" src={require('../assets/bloodicon.png')} alt="" />
                 <div className="landing_section_btns">
