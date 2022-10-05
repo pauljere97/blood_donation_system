@@ -3,7 +3,7 @@ const Footer = () => {
         <div className="footer">
             <div className='footer_text_side'>
                 <h1>Blood Transfusion Service</h1>
-                <p>Proident voluptate nulla commodo et reprehenderit deserunt aliqua exercitation exercitation id veniam ad in. Exercitation cillum minim cupidatat Lorem consectetur ex et ipsum. Veniam nisi sint tempor cillum quis veniam dolore aliquip officia est labore duis. Ea Lorem pariatur aute in. Irure pariatur pariatur cillum commodo. Proident proident Lorem culpa excepteur esse quis minim enim.</p>
+                <p>Blood Donation Is The Act Of Giving Blood To Someone Who Needs It. It Is Not Just About Giving Blood, But It Is An Act Of Kindness That Saves The Lives Of Hundreds Of People. A single drop of blood can make a huge difference.</p>
             </div>
             <div className='store_downloads'>
                 <img src={require('../assets/playstore.png')} alt="" />

@@ -9,6 +9,7 @@ import Contact from './pages/Contact';
 import { Context, state_data } from './context/Context';
 import { useState } from 'react';
 import LoadingScreen from './components/LoadingScreen';
+import Learn from './pages/Learn';
 
 function App() {
   const [state, setState] = useState(state_data)
@@ -22,6 +23,7 @@ function App() {
           <Route path="/find" element={<Find />} />
           <Route path="/login" element={<Login />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/learn" element={<Learn />} />
           <Route path="/" element={<Home />} />
           <Route path="/*" element={<Home />} />
         </Routes>

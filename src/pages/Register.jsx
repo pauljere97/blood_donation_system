@@ -4,6 +4,7 @@ import * as SERVICE from "../services"
 import axios from "axios"
 import { useContext, useState } from "react";
 import { Context } from "../context/Context";
+import { Link } from "react-router-dom"
 
 const Register = () => {
     const { state, setState } = useContext(Context)
@@ -108,7 +109,9 @@ const Register = () => {
                     <div className="text_side">
                         <h1 style={{color:'#EB4D4A'}}>Donate Blood</h1>
                         <p>You can register as a donor. The Agency will contact you when a need arises or when they are ready to collect blood in your Area. Your information will not be publicly available and you will remain anonymous as a donor.</p>
+                        <Link to="/learn">
                         <button className="learn_more">Learn More Here</button>
+                        </Link>
                     </div>
                     <div className="register_pad">
                         <div className="register_pad_top">
@@ -180,7 +183,9 @@ const Register = () => {
                     <div className="text_side">
                         <h1 style={{color:'#EB4D4A'}}>Donate Money</h1>
                         <p>You can donate money instead to help pay for costs of blood donation, the costs of these campaigns including the costs of blood replenishment products i.e. (Milk, Sugar, Soft Drinks) are the leading causes of blood shortages in Blood banks</p>
+                        <Link to="/learn">
                         <button className="learn_more">Learn More Here</button>
+                        </Link>
                     </div>
                     <div className="register_pad">
                         <div className="money_area" style={req_page === 1 ? {} : { display: 'none' }}>

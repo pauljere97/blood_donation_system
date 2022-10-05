@@ -18,7 +18,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         let config = SERVICE.fetch_data()
-        setState({ ...state, loading_screen:true})
+        close_loading(true)
         axios(config).then(function (response) {
             set_requests(response['data']['requests'].length)
             set_donors(response['data']['donors'].length)
@@ -29,13 +29,17 @@ const Dashboard = () => {
             set_donations(amount)
             set_messages(Math.ceil(Math.random()*200))
             set_broadcasts(Math.ceil(Math.random()*200))
-            setState({ ...state, loading_screen:false})
+            close_loading(false)
         })
         .catch(function (error) {
             console.log(error);
-            setState({ ...state, loading_screen:false})
+            close_loading(false)
         });
     }, [])
+
+    const close_loading = (type) => {
+        setState({ ...state, loading_screen:type})
+    }
 
     return (
         <div className="admin_page">

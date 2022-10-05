@@ -4,6 +4,7 @@ import * as SERVICE from "../services"
 import axios from "axios"
 import { useContext, useState } from "react";
 import { Context } from "../context/Context";
+import { Link } from "react-router-dom"
 
 const Find = () => {
     const { state, setState } = useContext(Context)
@@ -88,7 +89,9 @@ const Find = () => {
                     <div className="text_side">
                         <h1 style={{ color: '#EB4D4A' }}>Find a Donor</h1>
                         <p>The ZNBTS keeps a list of potential donors. You can send a request to the Agency requesting for blood, the Agency will find a donor(s) that matches your blood type and needs.</p>
+                        <Link to="/learn">
                         <button className="learn_more">Learn More Here</button>
+                        </Link>
                     </div>
                     <div className="register_pad">
                         <div className="register_pad_top">

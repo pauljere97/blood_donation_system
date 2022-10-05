@@ -9,6 +9,7 @@ import axios from "axios"
 const Requests = () => {
     const { state, setState } = useContext(Context)
     const [requests, set_requests] = useState([])
+    
     useEffect(() => {
         let config = SERVICE.fetch_data()
         setState({ ...state, loading_screen:true})
