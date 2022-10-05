@@ -2,18 +2,23 @@ import { MdSwapVert } from 'react-icons/md'
 import * as SERVICE from "../../services"
 import {AiFillEye} from 'react-icons/ai'
 import { useEffect, useState } from "react"
+import { useContext } from "react";
+import { Context } from "../../context/Context";
 
 import axios from "axios"
 const Requests = () => {
-
+    const { state, setState } = useContext(Context)
     const [requests, set_requests] = useState([])
     useEffect(() => {
         let config = SERVICE.fetch_data()
+        setState({ ...state, loading_screen:true})
         axios(config).then(function (response) {
             set_requests(response['data']['requests'])
+            setState({ ...state, loading_screen:false})
         })
         .catch(function (error) {
             console.log(error);
+            setState({ ...state, loading_screen:false})
         });
     },[])
     return (
