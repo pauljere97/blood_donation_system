@@ -43,9 +43,9 @@ const Find = () => {
         if(!address) {alert('Address missing'); return}
         if(!hospital) {alert('Last Donation Address missing'); return}
         if(!type) {alert('Blood group missing'); return}
-        if(!units) {alert('Blood group missing'); return}
-        if(!admin_date) {alert('Blood group missing'); return}
-        if(!reason) {alert('Blood group missing'); return}
+        if(!units) {alert('Units missing'); return}
+        if(!admin_date) {alert('Administration Date missing'); return}
+        if(!reason) {alert('Reason missing'); return}
 
         let payload = {
             firstname,

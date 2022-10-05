@@ -41,8 +41,6 @@ const Register = () => {
         if(!number) {alert('Number missing'); return}
         if(!city) {alert('City missing'); return}
         if(!address) {alert('Address missing'); return}
-        if(!last_donation) {alert('Last Donation Address missing'); return}
-        if(!blood_group) {alert('Blood group missing'); return}
 
         let payload = {
             firstname,
