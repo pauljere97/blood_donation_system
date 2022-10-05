@@ -466,3 +466,33 @@ button {
   margin: 10px 0;
 }
 
+.loading_screen_off{
+  display: none;
+}
+.loading_screen{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  backdrop-filter: blur(30px);
+  padding-bottom: 10vw;
+}
+.loader_icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  color: var(--RED);
+  animation: loading linear 2s infinite;
+}
+
+
+@keyframes loading {
+  from {transform: rotate(0deg)}
+  to {transform: rotate(360deg)}
+}

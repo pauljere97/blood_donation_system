@@ -1,10 +1,13 @@
 import Header from "../components/Header"
-import { useState } from "react"
 import Footer from "../components/Footer"
 import * as SERVICE from "../services"
 import axios from "axios"
+import { useContext, useState } from "react";
+import { Context } from "../context/Context";
 
 const Register = () => {
+    const { state, setState } = useContext(Context)
+
     const [input_page, set_input_page] = useState(1)
     const [req_page, set_req_page] = useState(1)
 
@@ -54,12 +57,14 @@ const Register = () => {
             conditions
         }
 
+        setState({ ...state, loading_screen:true})
         let config = SERVICE.register_donor(payload)
         axios(config).then(function (response) {
-            console.log(response)
+            setState({ ...state, loading_screen:false})
             set_input_page(5)
         })
         .catch(function (error) {
+            setState({ ...state, loading_screen:false})
             alert('something went wrong')
             console.log(error);
         });
@@ -81,13 +86,15 @@ const Register = () => {
             from,
             merchant
         }
-
+        setState({ ...state, loading_screen:true})
         let config = SERVICE.save_donation(payload)
         axios(config).then(function (response) {
+            setState({ ...state, loading_screen:false})
             console.log(response)
             set_req_page(2)
         })
         .catch(function (error) {
+            setState({ ...state, loading_screen:false})
             alert('something went wrong')
             console.log(error)
         });

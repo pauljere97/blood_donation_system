@@ -1,11 +1,13 @@
 import Header from "../components/Header"
 import Footer from "../components/Footer"
-import { useState } from "react"
+import { useContext, useState } from "react";
+import { Context } from "../context/Context";
 import * as SERVICE from "../services"
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+    const { state, setState } = useContext(Context)
     const navigate = useNavigate();
     const [email, set_email] = useState('')
     const [password, set_password] = useState('')
@@ -17,16 +19,20 @@ const Login = () => {
             password,
             email,
         }
+      
+        setState({ ...state, loading_screen:true})
         let config = SERVICE.login(payload)
         axios(config).then(function (response) {
             if(response['data']['success']){
                 sessionStorage.setItem("email", email);
                 navigate(`/admin/dashboard`)
             } else alert('login failed')
+            setState({ ...state, loading_screen:false})
         })
         .catch(function (error) {
             console.log(error);
             alert('login failed')
+            setState({ ...state, loading_screen:false})
         });
     }
 

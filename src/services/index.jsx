@@ -37,6 +37,17 @@ export const save_donation = (data) => {
     };
 }
 
+export const send_message = (data) => {
+    return {
+        method: 'post',
+        url: `${API}send_message`,
+        headers: { 
+            'Content-Type': 'application/json'
+        },
+        data : data
+    };
+}
+
 
 export const fetch_data = () => {
     return {

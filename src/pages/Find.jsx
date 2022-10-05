@@ -1,10 +1,12 @@
 import Header from "../components/Header"
-import { useState } from "react"
 import Footer from "../components/Footer"
 import * as SERVICE from "../services"
 import axios from "axios"
+import { useContext, useState } from "react";
+import { Context } from "../context/Context";
 
 const Find = () => {
+    const { state, setState } = useContext(Context)
     const [input_page, set_input_page] = useState(1)
 
     const change_step = (type) => {
@@ -59,14 +61,17 @@ const Find = () => {
             admin_date,
             reason
         }
+        setState({ ...state, loading_screen:true})
 
         let config = SERVICE.register_patient(payload)
         axios(config).then(function (response) {
             console.log(response)
+            setState({ ...state, loading_screen:false})
             set_input_page(5)
         })
         .catch(function (error) {
             console.log(error);
+            setState({ ...state, loading_screen:false})
             alert('something went wrong')
         });
 
