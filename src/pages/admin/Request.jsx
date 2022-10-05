@@ -1,13 +1,27 @@
 import { MdSwapVert } from 'react-icons/md'
+import * as SERVICE from "../../services"
+import {AiFillEye} from 'react-icons/ai'
+import { useEffect, useState } from "react"
+
+import axios from "axios"
 const Requests = () => {
-    let donors = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+    const [requests, set_requests] = useState([])
+    useEffect(() => {
+        let config = SERVICE.fetch_data()
+        axios(config).then(function (response) {
+            set_requests(response['data']['requests'])
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    },[])
     return (
         <div className="admin_page">
             <div className="table_wrapper">
                 <table className="table">
                     <thead>
                         <tr>
-                            <th><input type="checkbox" name="" id="" /> <MdSwapVert /></th>
                             <th>Name <MdSwapVert /></th>
                             <th>Surname <MdSwapVert /></th>
                             <th>Type <MdSwapVert /></th>
@@ -19,17 +33,18 @@ const Requests = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {donors.map((element, index) => {
+                        {requests.map((element, index) => {
                             return <tr key={index} className="door_row">
-                                <td><input type="checkbox" name="" id="" /></td>
-                                <td>Oliver</td>
-                                <td>Twist</td>
-                                <td>{Math.ceil(Math.random() * 10) % 2 === 0 ? 'B+' : 'A'}</td>
-                                <td>{Math.ceil(Math.random() * 10) % 2 === 0 ? 'NCH' : 'ADH'}</td>
-                                <td>{Math.ceil(Math.random() * 5)}</td>
-                                <td>12th June 2022</td>
-                                <td>Ndola</td>
-                                <td>View</td>
+                                <td>{element['firstname']}</td>
+                                <td>{element['lastname']}</td>
+                                <td>{element['type']}</td>
+                                <td>{element['hospital']}</td>
+                                <td>{element['units']}</td>
+                                <td>{element['admin_date']}</td>
+                                <td>{element['city']}</td>
+                                <td style={{cursor:'pointer'}}>
+                                    <AiFillEye size={24}/>
+                                </td>
                             </tr>
                         })}
 

@@ -38,7 +38,7 @@ button {
 }
 .bloodicon{
   position: absolute;
-  width: 500px;
+  width: 27vw;
   right: 100px;
   top: 150px;
 }
@@ -48,12 +48,18 @@ button {
   flex-direction: column;
   justify-content: center;
   padding: 20px;
+  position: relative;
+}
+.landing_page_main > *{
+  position: relative;
+  z-index: 2;
 }
 .landing_page_main h1{
   font-size: 35px;
 }
 .landing_page_main p{
   max-width: 700px;
+  width: 55vw;
 }
 .landing_section_btns{
   width: 100%;
@@ -160,6 +166,15 @@ button {
   background-color: var(--GRAY);
   outline: none;
 }
+.pad_inputs select{
+  margin-bottom: 3px;
+  padding: 5px;
+  border-radius: 0;
+  border: 1px solid #999;
+  border-radius: 7px 0px;
+  background-color: var(--GRAY);
+  outline: none;
+}
 .pad_inputs textarea{
   margin-bottom: 3px;
   padding: 5px;
@@ -167,7 +182,7 @@ button {
   border-radius: 7px 0px;
   background-color: var(--GRAY);
   outline: none;
-  min-height: 100px;
+  min-height: 160px;
   min-width: 100%;
   max-width: 100%;
 }
@@ -319,8 +334,9 @@ button {
 }
 
 .broadcast{
-  padding: 10px;
+  
   margin: 10px;
+  margin-bottom: 20px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   border-radius: 3px;
   background-color: white;
@@ -329,12 +345,15 @@ button {
 .broadcast > div{
   display: flex;
   font-weight: 500;
-  color: var(--RED);
+  color: white;
+  background-color: var(--RED);
+  padding: 10px;
 }
 
 .broadcast > p{
   color: #333;
   font-size: 15px;
+  padding: 10px;
 }
 .money_area{
   width: 100%;

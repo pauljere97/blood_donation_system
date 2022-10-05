@@ -7,6 +7,7 @@ import Dashboard from "./admin/Dashboard";
 import Broadcast from "./admin/Broadcast";
 import Messages from "./admin/Messages";
 import Settings from "./admin/Settings";
+import Donations from "./admin/Donations";
 const Admin = () => {
     let { page } = useParams();
     return (
@@ -20,6 +21,7 @@ const Admin = () => {
                     page === 'donors' ? <Donors/> : 
                     page === 'messages' ? <Messages/> : 
                     page === 'broadcast' ? <Broadcast/> : 
+                    page === 'donations' ? <Donations/> : 
                     page === 'settings' ? <Settings/> : ''
                 }
             </section>

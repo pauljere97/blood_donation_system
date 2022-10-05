@@ -5,6 +5,10 @@ const SideBar = () => {
     const location = useLocation();
     console.log('pathname', location.pathname);
 
+    const log_out = () => {
+        sessionStorage.clear()
+    }
+
     return (
         <div className="side_bar">
             <div className="side_top">
@@ -20,6 +24,9 @@ const SideBar = () => {
                 <Link to={'/admin/donors'}>
                     <button className={location.pathname === '/admin/donors' ? 'side_bar_navs_active' : ''}>Donors</button>
                 </Link>
+                <Link to={'/admin/donations'}>
+                    <button className={location.pathname === '/admin/donations' ? 'side_bar_navs_active' : ''}>Donations</button>
+                </Link>
                 <Link to={'/admin/messages'}>
                     <button className={location.pathname === '/admin/messages' ? 'side_bar_navs_active' : ''}>Messages</button>
                 </Link>
@@ -30,7 +37,7 @@ const SideBar = () => {
                     <button>Settings</button>
                 </Link> */}
                 <Link to={'/'}>
-                    <button className={location.pathname === '/login' ? 'side_bar_navs_active' : ''}>Logout</button>
+                    <button onClick={log_out}>Logout</button>
                 </Link>
             </div>
         </div>

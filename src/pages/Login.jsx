@@ -1,8 +1,33 @@
 import Header from "../components/Header"
-import { Link } from "react-router-dom"
 import Footer from "../components/Footer"
+import { useState } from "react"
+import * as SERVICE from "../services"
+import axios from "axios"
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+    const navigate = useNavigate();
+    const [email, set_email] = useState('')
+    const [password, set_password] = useState('')
+
+    const login = () => {
+        if(!email) {alert('Email missing'); return}
+        if(!password) {alert('Password missing'); return}
+        let payload = {
+            password,
+            email,
+        }
+        let config = SERVICE.login(payload)
+        axios(config).then(function (response) {
+            if(response['data']['success']){
+                sessionStorage.setItem("email", email);
+                navigate(`/admin/dashboard`)
+            } else alert('login failed')
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }
 
     return (
         <div className="page">
@@ -15,16 +40,16 @@ const Login = () => {
                     <div >
                         <div className="pad_inputs">
                             <label htmlFor="">Login ID</label>
-                            <input type="text" />
+                            <input type="text" value={email} onChange={(e)=>set_email(e.target.value)}/>
                             <label htmlFor="">Password</label>
-                            <input type="password" />
+                            <input type="password" value={password} onChange={(e)=>set_password(e.target.value)}/>
                         </div>
                     </div>
 
                     <div className="register_bottom">
-                        <Link to={'/admin/dashboard'}>
-                            <button >Login</button>
-                        </Link>
+                            <button onClick={login}>Login</button>
+                        {/* <Link to={'/admin/dashboard'}>
+                        </Link> */}
                     </div>
                 </div>
             </section>
