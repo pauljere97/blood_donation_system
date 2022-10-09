@@ -1,6 +1,17 @@
-// const BASE = 'http://localhost:6262'
-const BASE = 'https://tightward-api.herokuapp.com'
+const BASE = 'http://localhost:6262'
+// const BASE = 'https://tightward-api.herokuapp.com'
 const API = `${BASE}/api/bdsite/`
+
+export const send_broadcast = (data) => {
+    return {
+        method: 'post',
+        url: `${API}send_broadcast`,
+        headers: { 
+            'Content-Type': 'application/json'
+        },
+        data : data
+    };
+}
 
 export const register_donor = (data) => {
     return {
@@ -38,7 +49,7 @@ export const save_donation = (data) => {
 export const send_message = (data) => {
     return {
         method: 'post',
-        url: `${API}send_message`,
+        url: `${API}message_send`,
         headers: { 
             'Content-Type': 'application/json'
         },

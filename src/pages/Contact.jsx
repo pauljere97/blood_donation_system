@@ -26,8 +26,8 @@ const Contact = () => {
         if(!message) {alert('Messages missing'); return}
 
         let payload = {
-            from:phone,
-            message:message,
+            phone,
+            message,
         }
 
         let config = SERVICE.send_message(payload)

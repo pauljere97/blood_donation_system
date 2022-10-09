@@ -501,3 +501,27 @@ button {
   min-height: 100vh;
   padding-top:100px;
 }
+
+.input_fields{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0 10px;
+  margin-bottom: 30px;
+}
+.input_fields textarea{
+  margin-bottom: 3px;
+  padding: 5px;
+  border: 1px solid #999;
+  outline: none;
+  min-height: 160px;
+  width: 100%;
+}
+.input_fields button{
+  background-color: var(--RED);
+  color: white;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 4px;
+  margin-top: 10px;
+}

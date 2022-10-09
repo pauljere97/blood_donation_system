@@ -27,8 +27,8 @@ const Dashboard = () => {
                 amount += +element['amount']
             })
             set_donations(amount)
-            set_messages(Math.ceil(Math.random()*200))
-            set_broadcasts(Math.ceil(Math.random()*200))
+            set_messages(response['data']['messages'].length)
+            set_broadcasts(response['data']['broadcasts'].length)
             close_loading(false)
         })
         .catch(function (error) {
