@@ -22,6 +22,7 @@ const Requests = () => {
             setState({ ...state, loading_screen:false})
         });
     },[])
+    
     return (
         <div className="admin_page">
             <div className="table_wrapper">

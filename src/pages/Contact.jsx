@@ -1,16 +1,20 @@
 import Header from "../components/Header"
-import { useState } from "react"
+import { useState, useContext } from "react"
 import Footer from "../components/Footer"
 import * as SERVICE from "../services"
 import axios from "axios"
+import { Context } from "../context/Context"
 
 const Contact = () => {
+    const { state, setState } = useContext(Context)
     const [input_page, set_input_page] = useState(1)
 
     const change_step = (type) => {
         if (type === 1 && input_page < 3) {
-            if(input_page === 2){
-                register()
+            if(input_page === 1){
+                send_code()
+            }else if(input_page === 2){
+                confirm_number()
             }else set_input_page(input_page + 1)
         }
         if (type === -1 && input_page > 1) {
@@ -18,30 +22,73 @@ const Contact = () => {
         }
     }
 
+    const [message, set_message] = useState('')
     const [phone, set_phone] = useState('')
-    const [message, set_message] = useState('I would like to donate blood but i dont know where i need to go exactly to donate')
+    const [code, set_code] = useState('')
 
     const register = () => {
         if(!phone) {alert('Phone missing'); return}
         if(!message) {alert('Messages missing'); return}
 
+        setState({ ...state, loading_screen:true})
         let payload = {
             phone,
             message,
         }
-
         let config = SERVICE.send_message(payload)
         axios(config).then(function (response) {
             console.log(response)
             set_input_page(3)
+            setState({ ...state, loading_screen:false})
         })
         .catch(function (error) {
             console.log(error);
             alert('something went wrong')
+            setState({ ...state, loading_screen:false})
         });
 
         console.log(payload)
         
+    }
+
+    const send_code = () => {
+        setState({ ...state, loading_screen:true})
+        let payload = {
+            to:phone,
+            text:'Zambia National Blood Transfusion Service Verification Code: ',
+        }
+        let config = SERVICE.verify_number(payload)
+        axios(config).then(function (response) {
+            console.log(response)
+            set_input_page(2)
+            setState({ ...state, loading_screen:false})
+        })
+        .catch(function (error) {
+            console.log(error);
+            setState({ ...state, loading_screen:false})
+        });
+    }
+
+    const confirm_number = () => {
+        setState({ ...state, loading_screen:true})
+        let payload = {
+            to:phone,
+            code:code,
+        }
+        let config = SERVICE.confirm_number(payload)
+        axios(config).then(function (response) {
+            if(response['data']['success']){
+                register()
+            }else{
+                alert('Invalid or Expired Code, try again')
+                setState({ ...state, loading_screen:false})
+            }
+            console.log(response)
+        })
+        .catch(function (error) {
+            console.log(error);
+            setState({ ...state, loading_screen:false})
+        });
     }
 
 
@@ -74,7 +121,7 @@ const Contact = () => {
                             <div className="pad_inputs">
                                 <p>A Four Digit one time pin has being sent to you phone number. Enter it below to confirm your number</p>
                                 <label htmlFor="">Confirm OTP</label>
-                                <input type="text" />
+                                <input type="text" value={code} onChange={(e)=>set_code(e.target.value)}/>
                             </div>
                         </div>
                         <div className="request_complete" style={input_page === 3 ? {} : { display: 'none' }}>

@@ -4,7 +4,7 @@
 const LearnText = () => {
     
     return (
-        <section className="register_section2">
+        <section className="register_section2 learner_text">
                 <h1 style={{color:'#EB4D4A', textAlign:'center'}}>Learn More</h1>
                 <br />
                 <div>

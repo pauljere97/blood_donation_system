@@ -37,9 +37,11 @@ const Find = () => {
             }
         }
         if (type === 1 && input_page < 5) {
-            if (input_page === 4) {
-                register()
-            } else set_input_page(input_page + 1)
+            if(input_page === 3){
+                send_code()
+            }else if(input_page === 4){
+                confirm_number()
+            }else set_input_page(input_page + 1)
         }
         if (type === -1 && input_page > 1) {
             set_input_page(input_page - 1)
@@ -104,6 +106,46 @@ const Find = () => {
 
         console.log(payload)
 
+    }
+
+    const send_code = () => {
+        setState({ ...state, loading_screen:true})
+        let payload = {
+            to:number,
+            text:'Zambia National Blood Transfusion Service Verification Code: ',
+        }
+        let config = SERVICE.verify_number(payload)
+        axios(config).then(function (response) {
+            console.log(response)
+            set_input_page(4)
+            setState({ ...state, loading_screen:false})
+        })
+        .catch(function (error) {
+            console.log(error);
+            setState({ ...state, loading_screen:false})
+        });
+    }
+
+    const confirm_number = () => {
+        setState({ ...state, loading_screen:true})
+        let payload = {
+            to:number,
+            code:otp,
+        }
+        let config = SERVICE.confirm_number(payload)
+        axios(config).then(function (response) {
+            if(response['data']['success']){
+                register()
+            }else{
+                alert('Invalid or Expired Code, try again')
+                setState({ ...state, loading_screen:false})
+            }
+            console.log(response)
+        })
+        .catch(function (error) {
+            console.log(error);
+            setState({ ...state, loading_screen:false})
+        });
     }
 
 

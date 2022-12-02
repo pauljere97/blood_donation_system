@@ -80,3 +80,25 @@ export const login = (data) => {
     };
 }
 
+export const verify_number = (data) => {
+    return {
+        method: 'post',
+        url: `${API}verify_number`,
+        headers: { 
+            'Content-Type': 'application/json'
+        },
+        data : data
+    };
+}
+
+export const confirm_number = (data) => {
+    return {
+        method: 'post',
+        url: `${API}confirm_number`,
+        headers: { 
+            'Content-Type': 'application/json'
+        },
+        data : data
+    };
+}
+

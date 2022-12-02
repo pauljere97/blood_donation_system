@@ -14,8 +14,10 @@ const Register = () => {
 
     const change_step = (type) => {
         if (type === 1 && input_page < 5) {
-            if(input_page === 4){
-                register()
+            if(input_page === 3){
+                send_code()
+            }else if(input_page === 4){
+                confirm_number()
             }else set_input_page(input_page + 1)
         }
         if (type === -1 && input_page > 1) {
@@ -33,6 +35,7 @@ const Register = () => {
     const [last_donation, set_last_donation] = useState('')
     const [blood_group, set_blood_group] = useState('A')
     const [conditions, set_conditions] = useState('I have a sleep disorder called Insomnia that can make it hard to fall asleep, hard to stay asleep, and causes me to wake up too early and not be able to get back to sleep')
+    const [otp, set_otp] = useState('')
 
     const register = () => {
         if(!firstname) {alert('First name missing'); return}
@@ -70,6 +73,46 @@ const Register = () => {
 
         console.log(payload)
         
+    }
+
+    const send_code = () => {
+        setState({ ...state, loading_screen:true})
+        let payload = {
+            to:number,
+            text:'Zambia National Blood Transfusion Service Verification Code: ',
+        }
+        let config = SERVICE.verify_number(payload)
+        axios(config).then(function (response) {
+            console.log(response)
+            set_input_page(4)
+            setState({ ...state, loading_screen:false})
+        })
+        .catch(function (error) {
+            console.log(error);
+            setState({ ...state, loading_screen:false})
+        });
+    }
+
+    const confirm_number = () => {
+        setState({ ...state, loading_screen:true})
+        let payload = {
+            to:number,
+            code:otp,
+        }
+        let config = SERVICE.confirm_number(payload)
+        axios(config).then(function (response) {
+            if(response['data']['success']){
+                register()
+            }else{
+                alert('Invalid or Expired Code, try again')
+                setState({ ...state, loading_screen:false})
+            }
+            console.log(response)
+        })
+        .catch(function (error) {
+            console.log(error);
+            setState({ ...state, loading_screen:false})
+        });
     }
 
 
@@ -163,7 +206,7 @@ const Register = () => {
                                 <p>A Four Digit one time pin has being sent to you phone number.</p>
                                 <p>Enter it below to confirm your number</p>
                                 <label htmlFor="">Confirm OTP</label>
-                                <input type="text" />
+                                <input type="text" value={otp} onChange={(e) => set_otp(e.target.value)}/>
                             </div>
                         </div>
                         <div className="request_complete" style={input_page === 5 ? {} : { display: 'none' }}>
