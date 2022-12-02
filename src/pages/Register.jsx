@@ -232,30 +232,47 @@ const Register = () => {
                     </div>
                     <div className="register_pad">
                         <div className="money_area" style={req_page === 1 ? {} : { display: 'none' }}>
-                            <div className="pad_inputs">
+                            {/* <div className="pad_inputs">
                                 <label htmlFor="">Donation Amount (ZMW)</label>
                                 <input type="number" placeholder="0.00" value={amount} onChange={(e)=>set_amount(e.target.value)}/>
                                 <label htmlFor="">Mobile Money Phone Number</label>
                                 <input type="text" placeholder="XXXX XXX XXX" value={from} onChange={(e)=>set_from(e.target.value)}/>
                                 <label htmlFor="">Pay with</label>
-                            </div>
-                            <button className="payment_btns mtn" onClick={()=>save_donation('MTN Mobile Money')}>
+                            </div> */}
+                            <h1>Donate in any of the Following account</h1>
+                            <br />
+                            <button className="payment_btns mtn" onClick={()=>set_req_page(2)}>
                                 <img src={require('../assets/mtn_logo.png')} alt="" />
                                 <p>MTN Mobile Money</p>
                             </button>
-                            <button className="payment_btns airtel" onClick={()=>save_donation('Airtel Mobile Money')}>
+                            <button className="payment_btns airtel" onClick={()=>set_req_page(3)}>
                                 <img src={require('../assets/airtel_logo.jpeg')} alt="" />
                                 <p>Airtel Mobile Money</p>
                             </button>
-                            <button className="payment_btns zamtel" onClick={()=>save_donation('Zamtel Mobile Money')}>
+                            <button className="payment_btns zamtel" onClick={()=>set_req_page(4)}>
                                 <img src={require('../assets/zamtel_logo.png')} alt="" />
                                 <p>Zamtel Mobile Money</p>
                             </button>
                         </div>
                         <div className="request_complete" style={req_page === 2 ? {} : { display: 'none' }}>
-                            <h1 style={{color:'#EB4D4A'}}>Request Sent</h1>
-                            <p>Request has being sent to your mobile phone</p>
-                            <p>Approve the request to complete the donation.</p>
+                            <img style={{width:'70px'}} src={require('../assets/mtn_logo.png')} alt="" />
+                            <h1 style={{color:'#FFC424'}}>MTN Mobile Money</h1>
+                            <p>Acc. Name: <strong>ZNBT Service</strong></p>
+                            <p>Number: <strong>0966123421</strong></p>
+                            <button onClick={()=>set_req_page(1)}>Back</button>
+                        </div>
+                        <div className="request_complete" style={req_page === 3 ? {} : { display: 'none' }}>
+                            <img style={{width:'70px'}} src={require('../assets/airtel_logo.jpeg')} alt="" />
+                            <h1 style={{color:'#EE2B26'}}>Airtel Money</h1>
+                            <p>Acc. Name: <strong>ZNBT Service</strong></p>
+                            <p>Number: <strong>0977123421</strong></p>
+                            <button onClick={()=>set_req_page(1)}>Back</button>
+                        </div>
+                        <div className="request_complete" style={req_page === 4 ? {} : { display: 'none' }}>
+                            <img style={{width:'70px'}}  src={require('../assets/zamtel_logo.png')} alt="" />
+                            <h1 style={{color:'#01B158'}}>Zamtel Kwacha</h1>
+                            <p>Acc. Name: <strong>ZNBT Service</strong></p>
+                            <p>Number: <strong>0955123421</strong></p>
                             <button onClick={()=>set_req_page(1)}>Back</button>
                         </div>
                     </div>
