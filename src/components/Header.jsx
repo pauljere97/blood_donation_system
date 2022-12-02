@@ -6,7 +6,7 @@ import {RiMenuUnfoldFill} from 'react-icons/ri'
 const Header = () => {
     const location = useLocation();
     // console.log('pathname', location.pathname);
-    const [menu, set_menu] = useState(true)
+    const [menu, set_menu] = useState(false)
     return (
         <div className="header">
             <Link to={'/'}>
@@ -14,7 +14,7 @@ const Header = () => {
             </Link>
             <nav className="nav" style={menu ? {display:'flex'} : {}}>
                 <Link to={'/'}>
-                    <button style={{ color: '#EB4D4A' }} className={location.pathname === '/' ? 'nav_btns nav_active' : 'nav_btns'}>Home</button>
+                    <button  style={{ color: '#EB4D4A' }} className={location.pathname === '/' ? 'nav_btns nav_active' : 'nav_btns'}>Home</button>
                 </Link>
                 <Link to={'/register'}>
                     <button className={location.pathname === '/register' ? 'nav_btns nav_active' : 'nav_btns'}>Donate</button>

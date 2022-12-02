@@ -70,8 +70,6 @@ const Register = () => {
             alert('something went wrong')
             console.log(error);
         });
-
-        console.log(payload)
         
     }
 

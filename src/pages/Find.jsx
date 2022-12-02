@@ -91,7 +91,6 @@ const Find = () => {
             reason
         }
         setState({ ...state, loading_screen: true })
-
         let config = SERVICE.register_patient(payload)
         axios(config).then(function (response) {
             console.log(response)
@@ -103,9 +102,6 @@ const Find = () => {
                 setState({ ...state, loading_screen: false })
                 alert('something went wrong')
             });
-
-        console.log(payload)
-
     }
 
     const send_code = () => {
