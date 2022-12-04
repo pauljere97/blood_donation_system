@@ -22,11 +22,11 @@ const Contact = () => {
         }
     }
 
-    const [message, set_message] = useState('')
-    const [phone, set_phone] = useState('')
+    const [message, set_message] = useState('hello there')
+    const [phone, set_phone] = useState('260966778270')
     const [code, set_code] = useState('')
 
-    const register = () => {
+    const send = () => {
         if(!phone) {alert('Phone missing'); return}
         if(!message) {alert('Messages missing'); return}
 
@@ -52,6 +52,10 @@ const Contact = () => {
     }
 
     const send_code = () => {
+        if(phone[0] === '0'){
+            let new_phone = '26' + phone
+            set_phone(new_phone)
+        }
         setState({ ...state, loading_screen:true})
         let payload = {
             to:phone,
@@ -59,8 +63,11 @@ const Contact = () => {
         }
         let config = SERVICE.verify_number(payload)
         axios(config).then(function (response) {
-            console.log(response)
-            set_input_page(2)
+            if(response['data']['result'] === 'failed'){
+                alert(response['data']['message'])
+            }else{
+                set_input_page(2)
+            }
             setState({ ...state, loading_screen:false})
         })
         .catch(function (error) {
@@ -78,7 +85,7 @@ const Contact = () => {
         let config = SERVICE.confirm_number(payload)
         axios(config).then(function (response) {
             if(response['data']['success']){
-                register()
+                send()
             }else{
                 alert('Invalid or Expired Code, try again')
                 setState({ ...state, loading_screen:false})
@@ -106,7 +113,7 @@ const Contact = () => {
                     <div className="register_pad">
                         <div className="register_pad_top">
                             <p>Request</p>
-                            <p>{input_page}/5</p>
+                            <p>{input_page}/3</p>
                         </div>
                         
                         <div style={input_page === 1 ? {} : { display: 'none' }}>
