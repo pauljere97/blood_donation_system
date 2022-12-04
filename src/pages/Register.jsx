@@ -11,8 +11,24 @@ const Register = () => {
 
     const [input_page, set_input_page] = useState(1)
     const [req_page, set_req_page] = useState(1)
-
+    const [error, set_error] = useState('')
     const change_step = (type) => {
+        set_error('')
+        if (type === 1) {
+            if (input_page === 1) {
+                if (!firstname) { set_error('Please fill in First name'); return; }
+                if (!lastname) { set_error('Please fill in Last name'); return; }
+                if (!sex) { set_error('Please fill in Sex'); return; }
+                if (!dob) { set_error('Please fill in Date of Birth'); return; }
+            }
+            if (input_page === 2) {
+                if (!number) { set_error('Please fill in Phone Number'); return; }
+                if (!city) { set_error('Please fill in City'); return; }
+                if (!address) { set_error('Please fill in Address'); return; }
+            }
+        }
+
+
         if(type === 1 && input_page === 1){
             if(!firstname) {alert('First name missing'); return}
             if(!lastname) {alert('Last name missing'); return}
@@ -177,6 +193,7 @@ const Register = () => {
                             <p>{input_page}/5</p>
                         </div>
                         <div style={input_page === 1 ? {} : { display: 'none' }}>
+                            <p style={{ color: 'tomato' }}>{error}</p>
                             <div className="pad_inputs">
                                 <label htmlFor="">First Name</label>
                                 <input type="text" value={firstname} onChange={(e)=>set_firstname(e.target.value)}/>
@@ -192,6 +209,7 @@ const Register = () => {
                             </div>
                         </div>
                         <div style={input_page === 2 ? {} : { display: 'none' }}>
+                            <p style={{ color: 'tomato' }}>{error}</p>
                             <div className="pad_inputs">
                                 <label htmlFor="">Phone Number</label>
                                 <input type="tel" value={number} onChange={(e)=>set_number(e.target.value)}/>
@@ -204,6 +222,7 @@ const Register = () => {
                             </div>
                         </div>
                         <div style={input_page === 3 ? {} : { display: 'none' }}>
+                            <p style={{ color: 'tomato' }}>{error}</p>
                             <div className="pad_inputs">
                                 <label htmlFor="">Blood Group</label>
                                 <select value={blood_group} onChange={(e)=>set_blood_group(e.target.value)}>
@@ -218,6 +237,7 @@ const Register = () => {
                             </div>
                         </div>
                         <div style={input_page === 4 ? {} : { display: 'none' }}>
+                            <p style={{ color: 'tomato' }}>{error}</p>
                             <div className="pad_inputs">
                                 <p>A Four Digit one time pin has being sent to you phone number.</p>
                                 <p>Enter it below to confirm your number</p>
