@@ -105,9 +105,10 @@ const Find = () => {
     }
 
     const send_code = () => {
-        if(number[0] === 0){
+        if(number[0] === 0 || number[0] === '0'){
             let new_phone = '26' + number
             set_number(new_phone)
+            return
         }
         setState({ ...state, loading_screen:true})
         let payload = {
@@ -190,7 +191,7 @@ const Find = () => {
                             <p style={{ color: 'tomato' }}>{error}</p>
                             <div className="pad_inputs">
                                 <label htmlFor="">Phone Number</label>
-                                <input type="tel" value={number} onChange={(e) => set_number(e.target.value)} />
+                                <input type="text" value={number} onChange={(e) => set_number(e.target.value)} />
                                 <label htmlFor="">City</label>
                                 <input type="text" value={city} onChange={(e) => set_city(e.target.value)} />
                                 <label htmlFor="">Address</label>

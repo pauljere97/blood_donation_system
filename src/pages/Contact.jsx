@@ -52,10 +52,12 @@ const Contact = () => {
     }
 
     const send_code = () => {
-        if(phone[0] === 0){
+        if(phone[0] === 0 || phone[0] === '0'){
             let new_phone = '26' + phone
             set_phone(new_phone)
+            return
         }
+
         setState({ ...state, loading_screen:true})
         let payload = {
             to:phone,
@@ -119,7 +121,7 @@ const Contact = () => {
                         <div style={input_page === 1 ? {} : { display: 'none' }}>
                             <div className="pad_inputs">
                                 <label htmlFor="">Phone Number</label>
-                                <input type="tel" value={phone} onChange={(e)=>set_phone(e.target.value)}/>
+                                <input type="text" value={phone} onChange={(e)=>set_phone(e.target.value)}/>
                                 <label htmlFor="">You Message</label>
                                 <textarea value={message} onChange={(e)=>set_message(e.target.value)}></textarea>
                             </div>
