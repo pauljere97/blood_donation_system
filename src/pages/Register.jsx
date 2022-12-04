@@ -33,7 +33,7 @@ const Register = () => {
     const [city, set_city] = useState('')
     const [address, set_address] = useState('')
     const [last_donation, set_last_donation] = useState('')
-    const [blood_group, set_blood_group] = useState('A')
+    const [blood_group, set_blood_group] = useState('N/A')
     const [conditions, set_conditions] = useState('I have a sleep disorder called Insomnia that can make it hard to fall asleep, hard to stay asleep, and causes me to wake up too early and not be able to get back to sleep')
     const [otp, set_otp] = useState('')
 
@@ -74,6 +74,10 @@ const Register = () => {
     }
 
     const send_code = () => {
+        if(number[0] === 0){
+            let new_phone = '26' + number
+            set_number(new_phone)
+        }
         setState({ ...state, loading_screen:true})
         let payload = {
             to:number,
@@ -81,8 +85,12 @@ const Register = () => {
         }
         let config = SERVICE.verify_number(payload)
         axios(config).then(function (response) {
+            if(response['data']['result'] === 'failed'){
+                alert(response['data']['message'])
+            }else{
+                set_input_page(4)
+            }
             console.log(response)
-            set_input_page(4)
             setState({ ...state, loading_screen:false})
         })
         .catch(function (error) {
@@ -115,32 +123,30 @@ const Register = () => {
 
 
 
-    const [amount, set_amount] = useState('')
-    const [from, set_from] = useState('')
+    // const [amount, set_amount] = useState('')
+    // const [from, set_from] = useState('')
 
-    const save_donation = (merchant) => {
-        if(!amount) {alert('Amount missing'); return}
-        if(!from) {alert('Phone missing'); return}
-        let payload = {
-            amount,
-            from,
-            merchant
-        }
-        setState({ ...state, loading_screen:true})
-        let config = SERVICE.save_donation(payload)
-        axios(config).then(function (response) {
-            setState({ ...state, loading_screen:false})
-            console.log(response)
-            set_req_page(2)
-        })
-        .catch(function (error) {
-            setState({ ...state, loading_screen:false})
-            alert('something went wrong')
-            console.log(error)
-        });
-
-
-    }
+    // const save_donation = (merchant) => {
+    //     if(!amount) {alert('Amount missing'); return}
+    //     if(!from) {alert('Phone missing'); return}
+    //     let payload = {
+    //         amount,
+    //         from,
+    //         merchant
+    //     }
+    //     setState({ ...state, loading_screen:true})
+    //     let config = SERVICE.save_donation(payload)
+    //     axios(config).then(function (response) {
+    //         setState({ ...state, loading_screen:false})
+    //         console.log(response)
+    //         set_req_page(2)
+    //     })
+    //     .catch(function (error) {
+    //         setState({ ...state, loading_screen:false})
+    //         alert('something went wrong')
+    //         console.log(error)
+    //     });
+    // }
 
     return (
         <div className="page">
@@ -177,7 +183,7 @@ const Register = () => {
                         <div style={input_page === 2 ? {} : { display: 'none' }}>
                             <div className="pad_inputs">
                                 <label htmlFor="">Phone Number</label>
-                                <input type="text" value={number} onChange={(e)=>set_number(e.target.value)}/>
+                                <input type="tel" value={number} onChange={(e)=>set_number(e.target.value)}/>
                                 <label htmlFor="">City</label>
                                 <input type="text" value={city} onChange={(e)=>set_city(e.target.value)}/>
                                 <label htmlFor="">Address</label>
@@ -190,6 +196,7 @@ const Register = () => {
                             <div className="pad_inputs">
                                 <label htmlFor="">Blood Group</label>
                                 <select value={blood_group} onChange={(e)=>set_blood_group(e.target.value)}>
+                                    <option value="N/A">Not sure</option>
                                     <option value="A">A</option>
                                     <option value="AB">AB</option>
                                     <option value="B">B</option>

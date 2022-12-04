@@ -105,6 +105,10 @@ const Find = () => {
     }
 
     const send_code = () => {
+        if(number[0] === 0){
+            let new_phone = '26' + number
+            set_number(new_phone)
+        }
         setState({ ...state, loading_screen:true})
         let payload = {
             to:number,
@@ -112,8 +116,12 @@ const Find = () => {
         }
         let config = SERVICE.verify_number(payload)
         axios(config).then(function (response) {
+            if(response['data']['result'] === 'failed'){
+                alert(response['data']['message'])
+            }else{
+                set_input_page(4)
+            }
             console.log(response)
-            set_input_page(4)
             setState({ ...state, loading_screen:false})
         })
         .catch(function (error) {
@@ -182,7 +190,7 @@ const Find = () => {
                             <p style={{ color: 'tomato' }}>{error}</p>
                             <div className="pad_inputs">
                                 <label htmlFor="">Phone Number</label>
-                                <input type="text" value={number} onChange={(e) => set_number(e.target.value)} />
+                                <input type="tel" value={number} onChange={(e) => set_number(e.target.value)} />
                                 <label htmlFor="">City</label>
                                 <input type="text" value={city} onChange={(e) => set_city(e.target.value)} />
                                 <label htmlFor="">Address</label>
