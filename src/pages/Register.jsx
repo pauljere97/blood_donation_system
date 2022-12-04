@@ -13,6 +13,17 @@ const Register = () => {
     const [req_page, set_req_page] = useState(1)
 
     const change_step = (type) => {
+        if(type === 1 && input_page === 1){
+            if(!firstname) {alert('First name missing'); return}
+            if(!lastname) {alert('Last name missing'); return}
+            if(!sex) {alert('Sex missing'); return}
+            if(!dob) {alert('D.O.B missing'); return}
+        }
+        if(type === 1 && input_page === 2){
+            if(!number) {alert('Number missing'); return}
+            if(!city) {alert('City missing'); return}
+            if(!address) {alert('Address missing'); return}
+        }
         if (type === 1 && input_page < 5) {
             if(input_page === 3){
                 send_code()
