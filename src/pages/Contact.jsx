@@ -114,7 +114,7 @@ const Contact = () => {
                     </div>
                     <div className="register_pad">
                         <div className="register_pad_top">
-                            <p>Request</p>
+                            <p>Contact</p>
                             <p>{input_page}/3</p>
                         </div>
                         

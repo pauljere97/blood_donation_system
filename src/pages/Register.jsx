@@ -269,13 +269,6 @@ const Register = () => {
                     </div>
                     <div className="register_pad">
                         <div className="money_area" style={req_page === 1 ? {} : { display: 'none' }}>
-                            {/* <div className="pad_inputs">
-                                <label htmlFor="">Donation Amount (ZMW)</label>
-                                <input type="number" placeholder="0.00" value={amount} onChange={(e)=>set_amount(e.target.value)}/>
-                                <label htmlFor="">Mobile Money Phone Number</label>
-                                <input type="text" placeholder="XXXX XXX XXX" value={from} onChange={(e)=>set_from(e.target.value)}/>
-                                <label htmlFor="">Pay with</label>
-                            </div> */}
                             <h1>Donate in any of the Following account</h1>
                             <br />
                             <button className="payment_btns mtn" onClick={()=>set_req_page(2)}>
