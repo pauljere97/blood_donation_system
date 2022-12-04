@@ -135,8 +135,8 @@ const Contact = () => {
                         </div>
                         <div className="request_complete" style={input_page === 3 ? {} : { display: 'none' }}>
                             <h1 style={{color:'#EB4D4A'}}>Request Complete</h1>
-                            <p>You details have being registered</p>
-                            <p>The agency will contact you when a match is found.</p>
+                            <p>Message Sent Successfully</p>
+                            <p>The agency will contact you when a concerning our query.</p>
                             <button onClick={()=>set_input_page(1)}>Back</button>
                         </div>
                         <div className="register_bottom" style={input_page < 3 ? {} : { display: 'none' }}>
