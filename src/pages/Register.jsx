@@ -229,9 +229,13 @@ const Register = () => {
                                 <select value={blood_group} onChange={(e)=>set_blood_group(e.target.value)}>
                                     <option value="N/A">Not sure</option>
                                     <option value="A">A</option>
+                                    <option value="A-">A-</option>
                                     <option value="AB">AB</option>
+                                    <option value="AB-">AB-</option>
                                     <option value="B">B</option>
+                                    <option value="B-">B-</option>
                                     <option value="O">O</option>
+                                    <option value="O-">O-</option>
                                 </select>
                                 <label htmlFor="">Known medical conditions</label>
                                 <textarea value={conditions} onChange={(e)=>set_conditions(e.target.value)}></textarea>
